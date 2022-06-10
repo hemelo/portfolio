@@ -67,7 +67,7 @@ export default function Stacks({ className }) {
         <TabSelector currentTab={tab} onChange={setTab} className="mb-12" options={options} />
         <div className="flex justify-center items-center w-full gap-4 sm:gap-8 mb-12">
           <FavoriteFilter value={stars} onChange={setStars} />
-          <SearchBar className="w-full sm:w-80" placeholder="Pesquisar Stacks..." onChange={setSearch} />
+          <SearchBar className="w-full sm:w-80" placeholder="Pesquisar Stacks..." onChange={(e) => setSearch(e.target.value)} />
         </div>
         <div className="flex flex-wrap w-full sm:mx-auto sm:mb-2">
           {filteredSkills
