@@ -33,10 +33,10 @@ app.get("/api/certificados", async function (req, res) {
 
 });
 
-
+/* ONLY LOCAL DEVELOPMENT
 app.listen(3001, () => {
   console.log(`Example app listening at http://localhost:${3001}`);
-});
+});*/
 
 
 module.exports = app;
