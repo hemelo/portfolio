@@ -39,6 +39,7 @@ export default function Training({className}) {
   React.useEffect(() => {
     async function getAluraCertificates(){ 
       fetch("/api/certificados")
+        .then(result => console.log(result))
         .then(result => result.text())
         .then(content => {
           const parser = new DOMParser(content)
