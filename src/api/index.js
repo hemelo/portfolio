@@ -11,7 +11,7 @@ app.get("/api/certificados", function (req, res) {
   
   request.end(function (response) {
     if (response.error) throw new Error(response.error);
-    res.json(response.body);
+    res.json(response);
   });
 });
     
