@@ -42,8 +42,10 @@ export default function Training({className}) {
       axios.get("/api/certificados")
         .then(result => result.data)
         .then(content => {
-          setAluraCertificates(content.certificates)
-          setAluraCourses(content.courses)
+          if(content.certificates && content.courses) {
+            setAluraCertificates(content.certificates)
+            setAluraCourses(content.courses)
+          }
         })
     }
     

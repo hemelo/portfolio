@@ -28,6 +28,7 @@ app.get("/api/certificados", async function (req, res) {
       courses = [...new Set(courses)]
     })
 
+  res.setHeader("Content-Type", "application/json");
   res.json({courses, certificates})
 
 });
