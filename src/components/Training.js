@@ -1,5 +1,6 @@
 /* eslint-disable import/no-unresolved */
 import React from "react"
+import axios from "axios"
 import { Navigation, EffectFade } from "swiper";
 import { FaBookReader } from "react-icons/fa";
 import { CgAwards } from "react-icons/cg";
@@ -38,7 +39,7 @@ export default function Training({className}) {
   /** Fetch data */
   React.useEffect(() => {
     async function getAluraCertificates(){ 
-      fetch("https://cursos.alura.com.br/user/hmelo2509/fullCertificate/03b702831d58f6fbf691a6bddc2630d4")
+      axios.get("/api/certificados")
         .then(result => result.text())
         .then(content => {
 
