@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Henrique Melo's portfolio of projects",
   "private": true,
-  "proxy": "http://localhost:3001",
+  "proxy": "https://henrique-melo.vercel.app/",
   "dependencies": {
     "@emailjs/browser": "^3.6.2",
     "@heroicons/react": "^1.0.6",
