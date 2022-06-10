@@ -1,6 +1,5 @@
 /* eslint-disable import/no-unresolved */
 import React from "react"
-import axios from "axios"
 import { Navigation, EffectFade } from "swiper";
 import { FaBookReader } from "react-icons/fa";
 import { CgAwards } from "react-icons/cg";
