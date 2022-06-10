@@ -11,6 +11,7 @@ import Button from "./Button";
 import Modal from "./Modal";
 import Table from "./Table";
 import Loading from "./Loading";
+import axios from "axios"
 
 import "swiper/css";
 import "swiper/css/navigation";
@@ -38,29 +39,11 @@ export default function Training({className}) {
   /** Fetch data */
   React.useEffect(() => {
     async function getAluraCertificates(){ 
-      fetch("/api/certificados")
-        .then(result => result.text())
+      axios.get("/api/certificados")
+        .then(result => result.data)
         .then(content => {
-          const parser = new DOMParser(content)
-          const doc = parser.parseFromString(content, "text/html")
-
-          let certificates = []
-          doc.querySelectorAll(".content-item-title").forEach((certificate) => certificates.push(certificate.innerHTML.trim()))
-
-          certificates = certificates
-            .filter(certificate => !certificate.includes("desabilitada") && certificate.includes("Formação:"))
-            .map(certificate => { return certificate.replace(/\s+/g, " ")})
-      
-          let courses = []
-          doc.querySelectorAll(".content-courseList-courseName").forEach((course) => courses.push(course.innerHTML.trim()))
-          
-          courses = courses
-            .map(course => { return course.split("(de")[0]})
-            .map(course => { return course.replace(/\s+/g, " ")})
-          courses = [...new Set(courses)]
-
-          setAluraCertificates(certificates)
-          setAluraCourses(courses)
+          setAluraCertificates(content.certificates)
+          setAluraCourses(content.courses)
         })
     }
     
