@@ -38,10 +38,9 @@ export default function Training({className}) {
   /** Fetch data */
   React.useEffect(() => {
     async function getAluraCertificates(){ 
-      axios.get("/api/certificados")
+      fetch("/api/certificados")
         .then(result => result.text())
         .then(content => {
-
           const parser = new DOMParser(content)
           const doc = parser.parseFromString(content, "text/html")
 
