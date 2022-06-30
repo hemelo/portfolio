@@ -19,7 +19,6 @@ import LinkedinButton from "./LinkedinButton";
 
 const sectionTitle = "Formação"
 const sectionLabel = ""
-const tableLoadingTimeout = 1500
 
 export default function Training({className}) {
   const [aluraCertificates, setAluraCertificates] = React.useState([])
@@ -49,11 +48,9 @@ export default function Training({className}) {
         })
     }
     
-    setTimeout(function() { 
-      if(aluraCertificates.length == 0 && trainingModalIsOpen) 
-        getAluraCertificates() 
-    }, tableLoadingTimeout);
-  
+    if(aluraCertificates.length == 0 && trainingModalIsOpen)
+      getAluraCertificates() 
+      
   }, [trainingModalIsOpen])
 
   /** Callback used to re-render certificates table component with fetched data */
